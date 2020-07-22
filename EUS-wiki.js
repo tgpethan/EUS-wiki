@@ -156,7 +156,7 @@ function generatePageList(pageName) {
         if (s1[s1.length - 1] == "html") continue;
         if (s1.length >= 2) {
             // Has an extention, clearly a file.
-            pageList.push(new pageItem(pagesRoot[i].replace(".md", ""), s1[0], "/" + s1[0]));
+            pageList.push(new pageItem(pagesRoot[i].replace(".md", ""), s1[0], "/" + pagesRoot[i].replace(".md", "")));
         } else {
             // Probably a folder
             pageList.push(new folderItem(s1[0], getFolderContents(__dirname + BASE_PATH + "/EUS-wiki-pages/" + pagesRoot[i])));
@@ -207,8 +207,8 @@ function getFolderContents(s) {
         const s1 = pages[i].split(".");
         if (s1.length >= 2) {
             // Has an extention, clearly a file.
-            const fle = `${s}/${pages[0]}`.split("/EUS-wiki-pages");
-            list.push(new pageItem(s1[0], `${s}/${pages[0]}`, fle[fle.length - 1].replace(".md", "")));
+            const fle = `${s}/${pages[i]}`.split("/EUS-wiki-pages");
+            list.push(new pageItem(s1[0], `${s}/${pages[i]}`, fle[fle.length - 1].replace(".md", "")));
         } else {
             // Probably a folder
             list.push(new folderItem(s1[0], getFolderContents(`${s}/${pages[i]}`)));
