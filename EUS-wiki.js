@@ -18,10 +18,26 @@ if (!fs.existsSync(__dirname + BASE_PATH + "/files")) {
     fs.mkdirSync(__dirname + BASE_PATH + "/files");
     console.log(`[EUS-wiki] Made EUS-wiki module files folder`);
     // Download page files
-    
     // Download page template files
     // needs to be done
 }
+if (!fs.existsSync(__dirname + BASE_PATH + "/files/css")) {
+    fs.mkdirSync(__dirname + BASE_PATH + "/files/css");
+    console.log(`[EUS-wiki] Made EUS-wiki module css folder`);
+}
+if (!fs.existsSync(__dirname + BASE_PATH + "/files/css/main.css")) {
+    download("https://raw.githubusercontent.com/tgpethan/EUS-wiki/master/EUS-wiki/files/css/main.css", __dirname + BASE_PATH + "/files/css");
+    console.log(`[EUS-wiki] Downloaded EUS-wiki main.css`);
+}
+if (!fs.existsSync(__dirname + BASE_PATH + "/files/js")) {
+    fs.mkdirSync(__dirname + BASE_PATH + "/files/js");
+    console.log(`[EUS-wiki] Made EUS-wiki module js folder`);
+}
+if (!fs.existsSync(__dirname + BASE_PATH + "/files/js/navHelper.js")) {
+    download("https://raw.githubusercontent.com/tgpethan/EUS-wiki/master/EUS-wiki/files/js/navHelper.js", __dirname + BASE_PATH + "/files/js");
+    console.log(`[EUS-wiki] Downloaded EUS-wiki navHelper.js`);
+}
+
 
 module.exports = {
     extras:async function() {
